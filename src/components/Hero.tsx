@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, FileText, Mail, ArrowUp } from 'lucide-react';
+import { FileText, Mail, ArrowRight, ArrowUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -44,11 +44,13 @@ const Hero = () => {
           <div className="flex flex-col items-center gap-4 w-full max-w-xl mx-auto">
             <Button 
               size="lg" 
-              className="group w-full text-lg py-8 glow-button cursor-pointer"
+              className="w-full text-lg py-8 glow-button bg-primary hover:bg-primary/90 text-white cursor-pointer"
               onClick={() => navigate('/chat')}
             >
-              Chat with My AI Assistant
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <span className="flex items-center justify-center w-full">
+                Chat with My AI Assistant
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </span>
             </Button>
             <div className="flex gap-4 w-full">
               <Button 
@@ -57,8 +59,10 @@ const Hero = () => {
                 className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300 cursor-pointer"
                 onClick={handleDownloadResume}
               >
-                <FileText className="mr-2 h-4 w-4" />
-                Resume
+                <span className="flex items-center justify-center w-full">
+                  <FileText className="mr-2 h-4 w-4" />
+                  Resume
+                </span>
               </Button>
               <Button 
                 size="lg" 
@@ -69,8 +73,10 @@ const Hero = () => {
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <Mail className="mr-2 h-4 w-4" />
-                Contact Me
+                <span className="flex items-center justify-center w-full">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Contact Me
+                </span>
               </Button>
             </div>
           </div>
