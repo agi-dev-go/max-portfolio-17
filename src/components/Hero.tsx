@@ -53,8 +53,8 @@ const Hero = () => {
             <div className="flex gap-4 w-full">
               <Button 
                 size="lg" 
-                variant="secondary"
-                className="flex-1 py-6"
+                variant="outline"
+                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300"
                 onClick={handleDownloadResume}
               >
                 <FileText className="mr-2 h-4 w-4" />
@@ -62,8 +62,8 @@ const Hero = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="secondary"
-                className="flex-1 py-6"
+                variant="outline"
+                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
