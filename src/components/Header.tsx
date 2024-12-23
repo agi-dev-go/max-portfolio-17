@@ -27,14 +27,13 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="/" className="text-2xl font-bold text-primary">Portfolio</a>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <button onClick={() => handleNavigation('about')} className="text-foreground/80 hover:text-primary transition-colors">About</button>
             <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors">Experience</button>
             <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors">Projects</button>
             <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>
@@ -55,7 +54,6 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 bg-background">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => handleNavigation('about')} className="text-foreground/80 hover:text-primary transition-colors">About</button>
               <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors">Experience</button>
               <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors">Projects</button>
               <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>

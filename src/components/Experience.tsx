@@ -30,6 +30,13 @@ const experiences = [
     period: "2014 - 2016",
     description: "Developed predictive models for business intelligence.",
     technologies: ["Scikit-learn", "Pandas", "SQL", "R"],
+  },
+  {
+    title: "Research Assistant",
+    company: "University AI Lab",
+    period: "2012 - 2014",
+    description: "Conducted foundational research in machine learning algorithms.",
+    technologies: ["Python", "MATLAB", "Neural Networks", "Statistical Analysis"],
   }
 ];
 
@@ -38,7 +45,7 @@ const Experience = () => {
     <section id="experience" className="min-h-screen flex items-center bg-muted/50 snap-start">
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg" orientation="horizontal">
+        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
           <div className="flex gap-8 p-4 min-w-max">
             {experiences.map((exp, index) => (
               <Card 

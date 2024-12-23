@@ -31,6 +31,13 @@ const projects = [
     technologies: ["Kubernetes", "TensorFlow", "Prometheus", "Python"],
     github: "#",
     demo: "#",
+  },
+  {
+    title: "AI Research Assistant",
+    description: "Intelligent system for automating literature review and research synthesis.",
+    technologies: ["BERT", "Transformers", "Python", "ElasticSearch"],
+    github: "#",
+    demo: "#",
   }
 ];
 
@@ -39,7 +46,7 @@ const Projects = () => {
     <section id="projects" className="min-h-screen flex items-center snap-start">
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg" orientation="horizontal">
+        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
           <div className="flex gap-8 p-4 min-w-max">
             {projects.map((project, index) => (
               <Card 
