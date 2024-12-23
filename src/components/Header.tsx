@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
 
@@ -94,7 +94,6 @@ const Header = () => {
                   onClick={() => handleNavigation(item)}
                 >
                   <span className="capitalize">{item}</span>
-                  <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               ))}
             </div>
