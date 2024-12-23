@@ -7,6 +7,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const location = useLocation();
 
   useEffect(() => {
@@ -15,6 +16,59 @@ const Header = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const options = {
+      threshold: [0.2, 0.5, 0.8], // Multiple thresholds for better accuracy
+      rootMargin: '-100px 0px -100px 0px' // Adjusted margins
+    };
+
+    let currentSection = '';
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // Get the intersection ratio
+        const ratio = entry.intersectionRatio;
+        
+        if (entry.isIntersecting && ratio > 0.5) {
+          if (entry.target.id === 'hero') {
+            currentSection = '';
+            setActiveSection('');
+          } else {
+            currentSection = entry.target.id;
+            setActiveSection(entry.target.id);
+          }
+        } else if (!entry.isIntersecting && currentSection === entry.target.id) {
+          // Only clear if this was the active section
+          currentSection = '';
+          setActiveSection('');
+        }
+      });
+    }, options);
+
+    // Special handling for hero section at top
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.boundingClientRect.top <= 0) {
+          setActiveSection('');
+        }
+      });
+    }, { threshold: [0.1, 0.5], rootMargin: '0px' });
+
+    // Observe hero section with special observer
+    const heroSection = document.getElementById('hero');
+    if (heroSection) heroObserver.observe(heroSection);
+
+    // Observe other sections with main observer
+    ['experience', 'projects', 'contact'].forEach(sectionId => {
+      const element = document.getElementById(sectionId);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      observer.disconnect();
+      heroObserver.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -31,8 +85,20 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const getButtonClassName = (sectionId: string) => {
+    const baseClasses = "relative group px-4 py-2 transition-colors w-full";
+    const isActive = activeSection === sectionId;
+    return `${baseClasses} ${
+      isActive 
+        ? "text-primary bg-accent/50" 
+        : "text-foreground/80 hover:text-primary"
+    }`;
+  };
+
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'shadow-sm' : ''} bg-background dark:bg-gray-900`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'shadow-sm' : ''
+    } bg-background dark:bg-gray-900`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -45,11 +111,13 @@ const Header = () => {
               <Button
                 key={item}
                 variant="ghost"
-                className="relative group px-4 py-2 text-foreground/80 hover:text-primary transition-colors w-full"
+                className={getButtonClassName(item)}
                 onClick={() => handleNavigation(item)}
               >
                 <span className="capitalize">{item}</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-transform origin-left ${
+                  activeSection === item ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}></span>
               </Button>
             ))}
             <Button
@@ -90,7 +158,11 @@ const Header = () => {
                 <Button
                   key={item}
                   variant="ghost"
-                  className="w-full justify-start px-4 py-2 text-foreground/80 hover:text-primary hover:bg-accent/50 transition-colors"
+                  className={`w-full justify-start px-4 py-2 transition-colors ${
+                    activeSection === item
+                      ? 'text-primary bg-accent/50'
+                      : 'text-foreground/80 hover:text-primary hover:bg-accent/50'
+                  }`}
                   onClick={() => handleNavigation(item)}
                 >
                   <span className="capitalize">{item}</span>
