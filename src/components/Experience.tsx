@@ -50,7 +50,7 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <Card 
                 key={index} 
-                className="p-6 card-hover snap-center flex-shrink-0 bg-gradient-to-br from-background to-muted/50"
+                className="p-6 card-hover snap-center flex-shrink-0 bg-gradient-to-br from-background to-muted/50 border border-primary/10"
               >
                 <div className="flex flex-col space-y-4">
                   <div>

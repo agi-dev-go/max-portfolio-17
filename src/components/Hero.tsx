@@ -44,7 +44,7 @@ const Hero = () => {
           <div className="flex flex-col items-center gap-4 w-full max-w-xl mx-auto">
             <Button 
               size="lg" 
-              className="group w-full text-lg py-6"
+              className="group w-full text-lg py-8 glow-button"
               onClick={() => navigate('/chat')}
             >
               Chat with My AI Assistant
@@ -53,8 +53,8 @@ const Hero = () => {
             <div className="flex gap-4 w-full">
               <Button 
                 size="lg" 
-                variant="outline"
-                className="flex-1 py-4"
+                variant="secondary"
+                className="flex-1 py-6"
                 onClick={handleDownloadResume}
               >
                 <FileText className="mr-2 h-4 w-4" />
@@ -63,7 +63,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="secondary"
-                className="flex-1 py-4"
+                className="flex-1 py-6"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
