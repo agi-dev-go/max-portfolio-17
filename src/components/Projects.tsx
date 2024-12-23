@@ -18,6 +18,20 @@ const projects = [
     github: "#",
     demo: "#",
   },
+  {
+    title: "Computer Vision Pipeline",
+    description: "Automated visual inspection system for manufacturing.",
+    technologies: ["OpenCV", "PyTorch", "CUDA", "C++"],
+    github: "#",
+    demo: "#",
+  },
+  {
+    title: "MLOps Platform",
+    description: "End-to-end platform for ML model deployment and monitoring.",
+    technologies: ["Kubernetes", "TensorFlow", "Prometheus", "Python"],
+    github: "#",
+    demo: "#",
+  }
 ];
 
 const Projects = () => {
@@ -25,8 +39,8 @@ const Projects = () => {
     <section id="projects" className="min-h-screen flex items-center snap-start">
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
-          <div className="flex gap-8 p-4">
+        <ScrollArea className="w-full whitespace-nowrap rounded-lg" orientation="horizontal">
+          <div className="flex gap-8 p-4 min-w-max">
             {projects.map((project, index) => (
               <Card 
                 key={index} 

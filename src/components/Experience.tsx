@@ -17,6 +17,20 @@ const experiences = [
     description: "Architected and deployed large-scale machine learning systems.",
     technologies: ["Python", "Kubernetes", "Docker", "GCP"],
   },
+  {
+    title: "ML Research Engineer",
+    company: "AI Research Lab",
+    period: "2016 - 2018",
+    description: "Conducted research in natural language processing and computer vision.",
+    technologies: ["PyTorch", "BERT", "Computer Vision", "NLP"],
+  },
+  {
+    title: "Data Scientist",
+    company: "Data Analytics Co",
+    period: "2014 - 2016",
+    description: "Developed predictive models for business intelligence.",
+    technologies: ["Scikit-learn", "Pandas", "SQL", "R"],
+  }
 ];
 
 const Experience = () => {
@@ -24,8 +38,8 @@ const Experience = () => {
     <section id="experience" className="min-h-screen flex items-center bg-muted/50 snap-start">
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
-          <div className="flex gap-8 p-4">
+        <ScrollArea className="w-full whitespace-nowrap rounded-lg" orientation="horizontal">
+          <div className="flex gap-8 p-4 min-w-max">
             {experiences.map((exp, index) => (
               <Card 
                 key={index} 

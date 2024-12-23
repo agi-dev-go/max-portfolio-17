@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,18 +16,28 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavigation = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+    } else {
+      const element = document.getElementById(sectionId);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-2xl font-bold text-primary">Portfolio</a>
+          <a href="/" className="text-2xl font-bold text-primary">Portfolio</a>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-colors">About</a>
-            <a href="#experience" className="text-foreground/80 hover:text-primary transition-colors">Experience</a>
-            <a href="#projects" className="text-foreground/80 hover:text-primary transition-colors">Projects</a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Contact</a>
+            <button onClick={() => handleNavigation('about')} className="text-foreground/80 hover:text-primary transition-colors">About</button>
+            <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors">Experience</button>
+            <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors">Projects</button>
+            <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -43,10 +55,10 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 bg-background">
             <div className="flex flex-col space-y-4">
-              <a href="#about" className="text-foreground/80 hover:text-primary transition-colors">About</a>
-              <a href="#experience" className="text-foreground/80 hover:text-primary transition-colors">Experience</a>
-              <a href="#projects" className="text-foreground/80 hover:text-primary transition-colors">Projects</a>
-              <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Contact</a>
+              <button onClick={() => handleNavigation('about')} className="text-foreground/80 hover:text-primary transition-colors">About</button>
+              <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors">Experience</button>
+              <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors">Projects</button>
+              <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>
             </div>
           </nav>
         )}
