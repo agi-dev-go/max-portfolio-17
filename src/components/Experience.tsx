@@ -11,6 +11,7 @@ const experiences = [
     period: "2021 - Present",
     description: "Leading a team of ML engineers in developing cutting-edge AI solutions.",
     technologies: ["PyTorch", "TensorFlow", "AWS", "MLOps"],
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "Senior ML Engineer",
@@ -18,6 +19,7 @@ const experiences = [
     period: "2018 - 2021",
     description: "Architected and deployed large-scale machine learning systems.",
     technologies: ["Python", "Kubernetes", "Docker", "GCP"],
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "ML Research Engineer",
@@ -25,6 +27,7 @@ const experiences = [
     period: "2016 - 2018",
     description: "Conducted research in natural language processing and computer vision.",
     technologies: ["PyTorch", "BERT", "Computer Vision", "NLP"],
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "Data Scientist",
@@ -32,6 +35,7 @@ const experiences = [
     period: "2014 - 2016",
     description: "Developed predictive models for business intelligence.",
     technologies: ["Scikit-learn", "Pandas", "SQL", "R"],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "Research Assistant",
@@ -39,6 +43,7 @@ const experiences = [
     period: "2012 - 2014",
     description: "Conducted foundational research in machine learning algorithms.",
     technologies: ["Python", "MATLAB", "Neural Networks", "Statistical Analysis"],
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=300&h=200",
   }
 ];
 
@@ -89,10 +94,17 @@ const Experience = () => {
             {visibleExperiences.map((exp, index) => (
               <Card 
                 key={index} 
-                className="p-6 w-[300px] sm:w-[350px] h-[400px] flex-shrink-0 bg-card border border-primary/10 relative group hover:shadow-lg transition-all duration-300"
+                className="p-6 w-[300px] sm:w-[350px] h-[500px] flex-shrink-0 bg-card border border-primary/10 relative group hover:shadow-lg transition-all duration-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
                 <div className="flex flex-col h-full space-y-4 relative z-10">
+                  <div className="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src={exp.image} 
+                      alt={exp.title} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                   <div>
                     <h3 className="text-xl font-semibold">{exp.title}</h3>
                     <p className="text-muted-foreground">{exp.company}</p>

@@ -11,6 +11,7 @@ const projects = [
     technologies: ["Python", "React", "TensorFlow", "AWS"],
     github: "#",
     demo: "#",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "NLP Research Framework",
@@ -18,6 +19,7 @@ const projects = [
     technologies: ["PyTorch", "FastAPI", "Docker", "Redis"],
     github: "#",
     demo: "#",
+    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "Computer Vision Pipeline",
@@ -25,6 +27,7 @@ const projects = [
     technologies: ["OpenCV", "PyTorch", "CUDA", "C++"],
     github: "#",
     demo: "#",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "MLOps Platform",
@@ -32,6 +35,7 @@ const projects = [
     technologies: ["Kubernetes", "TensorFlow", "Prometheus", "Python"],
     github: "#",
     demo: "#",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=300&h=200",
   },
   {
     title: "AI Research Assistant",
@@ -39,6 +43,7 @@ const projects = [
     technologies: ["BERT", "Transformers", "Python", "ElasticSearch"],
     github: "#",
     demo: "#",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=300&h=200",
   }
 ];
 
@@ -89,10 +94,17 @@ const Projects = () => {
             {visibleProjects.map((project, index) => (
               <Card 
                 key={index} 
-                className="p-6 w-[300px] sm:w-[350px] h-[400px] flex-shrink-0 bg-card border border-primary/10 relative group hover:shadow-lg transition-all duration-300"
+                className="p-6 w-[300px] sm:w-[350px] h-[500px] flex-shrink-0 bg-card border border-primary/10 relative group hover:shadow-lg transition-all duration-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
                 <div className="flex flex-col h-full space-y-4 relative z-10">
+                  <div className="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                   <h3 className="text-xl font-semibold">{project.title}</h3>
                   <p className="text-muted-foreground flex-grow">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mt-auto">

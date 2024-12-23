@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { FileText, Mail, ArrowRight, ArrowUp } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { FileText, Mail, ArrowRight, ArrowUp, MessageSquare } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -27,6 +25,10 @@ const Hero = () => {
     console.log('Download resume');
   };
 
+  const handleChatClick = () => {
+    window.open('https://chat.example.com', '_blank');
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -45,9 +47,10 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="w-full text-lg py-8 glow-button bg-primary hover:bg-primary/90 text-white cursor-pointer"
-              onClick={() => navigate('/chat')}
+              onClick={handleChatClick}
             >
               <span className="flex items-center justify-center w-full">
+                <MessageSquare className="mr-2 h-5 w-5" />
                 Chat with My AI Assistant
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </span>
