@@ -55,8 +55,8 @@ const Experience = () => {
   useEffect(() => {
     const updateItemsPerPage = () => {
       const width = window.innerWidth;
-      if (width < 640) setItemsPerPage(1);
-      else if (width < 1024) setItemsPerPage(2);
+      if (width < 750) setItemsPerPage(1);
+      else if (width < 1500) setItemsPerPage(2);
       else setItemsPerPage(3);
     };
 
@@ -64,6 +64,10 @@ const Experience = () => {
     window.addEventListener('resize', updateItemsPerPage);
     return () => window.removeEventListener('resize', updateItemsPerPage);
   }, []);
+  
+  useEffect(() => {
+    setCurrentPage(0)
+  }, [itemsPerPage]);
 
   const totalPages = Math.ceil(experiences.length / itemsPerPage);
 
