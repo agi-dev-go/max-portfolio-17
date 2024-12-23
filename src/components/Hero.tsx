@@ -38,7 +38,7 @@ const Hero = () => {
       <div className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden snap-start">
         <div ref={heroRef} className="container mx-auto px-4 py-32 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            AI/ML Engineering Lead
+            John Doe
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
             Building the future of artificial intelligence through innovative solutions and scalable architectures.
