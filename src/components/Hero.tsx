@@ -35,10 +35,10 @@ const Hero = () => {
     <>
       <div className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden snap-start">
         <div ref={heroRef} className="container mx-auto px-4 py-32 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             AI/ML Engineering Lead
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
             Building the future of artificial intelligence through innovative solutions and scalable architectures.
           </p>
           <div className="flex flex-col items-center gap-4 w-full max-w-xl mx-auto">
@@ -56,7 +56,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300 cursor-pointer"
+                className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer"
                 onClick={handleDownloadResume}
               >
                 <span className="flex items-center justify-center w-full">
@@ -67,7 +67,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300 cursor-pointer"
+                className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -86,7 +86,7 @@ const Hero = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg transition-all hover:scale-110 z-50 cursor-pointer"
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg transition-all hover:scale-110 z-50 cursor-pointer"
         >
           <ArrowUp className="h-5 w-5" />
         </button>
