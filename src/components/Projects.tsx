@@ -88,7 +88,7 @@ const Projects = () => {
       </div>
 
       <div className="container mx-auto px-4 py-20 relative">
-        <h2 className="text-3xl font-bold mb-12 text-center"><SectionHeader title="Featured Projects"/></></h2>
+        <h2 className="text-3xl font-bold mb-12 text-center"><SectionHeader title="Featured Projects"/></h2>
         
         <div className="relative flex flex-col items-center">
           <div className="flex justify-center gap-8 mb-8 transition-all duration-300 ease-in-out">
