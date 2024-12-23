@@ -24,7 +24,6 @@ const Hero = () => {
   }, []);
 
   const handleDownloadResume = () => {
-    // TODO: Implement resume download
     console.log('Download resume');
   };
 
@@ -42,20 +41,20 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto">
             Building the future of artificial intelligence through innovative solutions and scalable architectures.
           </p>
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4 w-full max-w-xl mx-auto">
             <Button 
               size="lg" 
-              className="group w-full md:w-auto md:min-w-[300px]"
+              className="group w-full text-lg py-6"
               onClick={() => navigate('/chat')}
             >
               Chat with My AI Assistant
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <div className="flex gap-4 w-full md:w-auto justify-center">
+            <div className="flex gap-4 w-full">
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 md:flex-none"
+                className="flex-1 py-4"
                 onClick={handleDownloadResume}
               >
                 <FileText className="mr-2 h-4 w-4" />
@@ -64,7 +63,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="secondary"
-                className="flex-1 md:flex-none"
+                className="flex-1 py-4"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -81,7 +80,7 @@ const Hero = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-r from-secondary to-primary text-white shadow-lg transition-all hover:scale-110 z-50"
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg transition-all hover:scale-110 z-50"
         >
           <ArrowUp className="h-5 w-5" />
         </button>

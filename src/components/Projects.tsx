@@ -46,17 +46,16 @@ const Projects = () => {
     <section id="projects" className="min-h-screen flex items-center snap-start">
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
-          <div className="flex gap-8 p-4 min-w-max">
+        <ScrollArea className="w-full">
+          <div className="flex gap-8 p-4 pb-8 overflow-x-auto snap-x snap-mandatory">
             {projects.map((project, index) => (
               <Card 
                 key={index} 
-                className="p-6 card-hover min-w-[300px] md:min-w-[400px] animate-slide-in-right"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="p-6 card-hover snap-center flex-shrink-0 bg-gradient-to-br from-background to-muted/50"
               >
                 <div className="flex flex-col space-y-4">
-                  <h3 className="text-xl font-semibold whitespace-normal">{project.title}</h3>
-                  <p className="text-foreground/70 whitespace-normal">{project.description}</p>
+                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <p className="text-foreground/70 flex-grow">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} variant="outline">{tech}</Badge>

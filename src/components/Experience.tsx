@@ -45,21 +45,20 @@ const Experience = () => {
     <section id="experience" className="min-h-screen flex items-center bg-muted/50 snap-start">
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
-          <div className="flex gap-8 p-4 min-w-max">
+        <ScrollArea className="w-full">
+          <div className="flex gap-8 p-4 pb-8 overflow-x-auto snap-x snap-mandatory">
             {experiences.map((exp, index) => (
               <Card 
                 key={index} 
-                className="p-6 card-hover min-w-[300px] md:min-w-[400px] animate-slide-in-right"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="p-6 card-hover snap-center flex-shrink-0 bg-gradient-to-br from-background to-muted/50"
               >
                 <div className="flex flex-col space-y-4">
                   <div>
-                    <h3 className="text-xl font-semibold whitespace-normal">{exp.title}</h3>
+                    <h3 className="text-xl font-semibold">{exp.title}</h3>
                     <p className="text-foreground/60">{exp.company}</p>
                   </div>
                   <span className="text-sm text-foreground/60">{exp.period}</span>
-                  <p className="whitespace-normal">{exp.description}</p>
+                  <p className="flex-grow">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary">{tech}</Badge>
