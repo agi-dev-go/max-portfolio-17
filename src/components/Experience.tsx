@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import SectionHeader from './SectionHeader';
 
 const experiences = [
   {
@@ -80,23 +81,22 @@ const Experience = () => {
   );
 
   return (
-    <section id="experience" className="min-h-screen flex items-center snap-start relative bg-gradient-to-br from-muted to-background">
+    <section id="experience" className="min-h-screen flex items-center snap-start relative bg-gradient-to-br from-muted to-background dark:from-gray-900 dark:to-gray-800">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative">
-        <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
+        <SectionHeader title="Experience" />
         
         <div className="relative flex flex-col items-center">
           <div className="flex justify-center gap-8 mb-8 transition-all duration-300 ease-in-out">
             {visibleExperiences.map((exp, index) => (
               <Card 
                 key={index} 
-                className="p-6 w-[300px] sm:w-[350px] h-[500px] flex-shrink-0 bg-card border border-primary/10 relative group hover:shadow-lg transition-all duration-300"
+                className="p-6 w-[300px] sm:w-[350px] h-[500px] flex-shrink-0 bg-card dark:bg-gray-800 border border-primary/10 relative group hover:shadow-lg transition-all duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
                 <div className="flex flex-col h-full space-y-4 relative z-10">
                   <div className="w-full h-48 overflow-hidden rounded-lg mb-4">
                     <img 
@@ -125,7 +125,7 @@ const Experience = () => {
             <Button
               variant="outline"
               size="icon"
-              className="bg-card shadow-lg hover:bg-accent cursor-pointer disabled:opacity-50"
+              className="bg-card dark:bg-gray-800 shadow-lg hover:bg-accent cursor-pointer disabled:opacity-50"
               onClick={() => handlePageChange('prev')}
               disabled={currentPage === 0}
             >
@@ -134,7 +134,7 @@ const Experience = () => {
             <Button
               variant="outline"
               size="icon"
-              className="bg-card shadow-lg hover:bg-accent cursor-pointer disabled:opacity-50"
+              className="bg-card dark:bg-gray-800 shadow-lg hover:bg-accent cursor-pointer disabled:opacity-50"
               onClick={() => handlePageChange('next')}
               disabled={currentPage === totalPages - 1}
             >
