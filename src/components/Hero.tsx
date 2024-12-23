@@ -62,7 +62,7 @@ const Hero = () => {
                 className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer"
                 onClick={handleDownloadResume}
               >
-                <span className="flex items-center justify-center w-full">
+                <span className="flex items-center text-black justify-center w-full">
                   <FileText className="mr-2 h-4 w-4" />
                   Resume
                 </span>
@@ -76,7 +76,7 @@ const Hero = () => {
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <span className="flex items-center justify-center w-full">
+                <span className="flex items-center text-black justify-center w-full">
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Me
                 </span>
