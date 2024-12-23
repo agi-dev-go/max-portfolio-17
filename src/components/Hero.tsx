@@ -44,7 +44,7 @@ const Hero = () => {
           <div className="flex flex-col items-center gap-4 w-full max-w-xl mx-auto">
             <Button 
               size="lg" 
-              className="group w-full text-lg py-8 glow-button"
+              className="group w-full text-lg py-8 glow-button cursor-pointer"
               onClick={() => navigate('/chat')}
             >
               Chat with My AI Assistant
@@ -54,7 +54,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300"
+                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300 cursor-pointer"
                 onClick={handleDownloadResume}
               >
                 <FileText className="mr-2 h-4 w-4" />
@@ -63,7 +63,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300"
+                className="flex-1 py-6 bg-white hover:bg-gray-100 border-gray-300 cursor-pointer"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -80,7 +80,7 @@ const Hero = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg transition-all hover:scale-110 z-50"
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg transition-all hover:scale-110 z-50 cursor-pointer"
         >
           <ArrowUp className="h-5 w-5" />
         </button>

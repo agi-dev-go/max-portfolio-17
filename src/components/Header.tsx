@@ -34,16 +34,16 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors">Experience</button>
-            <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors">Projects</button>
-            <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>
+            <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors cursor-pointer">Experience</button>
+            <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors cursor-pointer">Projects</button>
+            <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors cursor-pointer">Contact</button>
           </nav>
 
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -52,11 +52,26 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 bg-background">
+          <nav className="md:hidden py-4 bg-background/95 backdrop-blur-md border-t border-border/50 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => handleNavigation('experience')} className="text-foreground/80 hover:text-primary transition-colors">Experience</button>
-              <button onClick={() => handleNavigation('projects')} className="text-foreground/80 hover:text-primary transition-colors">Projects</button>
-              <button onClick={() => handleNavigation('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>
+              <button 
+                onClick={() => handleNavigation('experience')} 
+                className="text-foreground/80 hover:text-primary transition-colors p-2 rounded-lg hover:bg-accent/10 cursor-pointer"
+              >
+                Experience
+              </button>
+              <button 
+                onClick={() => handleNavigation('projects')} 
+                className="text-foreground/80 hover:text-primary transition-colors p-2 rounded-lg hover:bg-accent/10 cursor-pointer"
+              >
+                Projects
+              </button>
+              <button 
+                onClick={() => handleNavigation('contact')} 
+                className="text-foreground/80 hover:text-primary transition-colors p-2 rounded-lg hover:bg-accent/10 cursor-pointer"
+              >
+                Contact
+              </button>
             </div>
           </nav>
         )}
