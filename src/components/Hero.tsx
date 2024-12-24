@@ -21,10 +21,6 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleDownloadResume = () => {
-    console.log('Download resume');
-  };
-
   const handleChatClick = () => {
     window.open('https://chat.example.com', '_blank');
   };
@@ -35,7 +31,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden snap-start">
+      <div className="min-h-screen flex items-center justify-center hero-gradient light dark:dark relative overflow-hidden snap-start">
         <div ref={heroRef} className="container mx-auto px-4 py-32 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             John Doe
@@ -46,7 +42,7 @@ const Hero = () => {
           <div className="flex flex-col items-center gap-4 w-full max-w-xl mx-auto">
             <Button 
               size="lg" 
-              className="w-full text-lg py-8 glow-button bg-primary hover:bg-primary/90 text-white cursor-pointer"
+              className="w-full text-lg py-8 glow-button cursor-pointer"
               onClick={handleChatClick}
             >
               <span className="flex items-center justify-center w-full">
@@ -59,10 +55,10 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer"
-                onClick={handleDownloadResume}
+                className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer dark:bg-gray-800 dark:text-white"
+                onClick={() => window.open('/resume.pdf', '_blank')}
               >
-                <span className="flex items-center text-black justify-center w-full">
+                <span className="flex items-center justify-center w-full">
                   <FileText className="mr-2 h-4 w-4" />
                   Resume
                 </span>
@@ -70,13 +66,13 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer"
+                className="flex-1 py-6 bg-white hover:bg-accent cursor-pointer dark:bg-gray-800 dark:text-white"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <span className="flex items-center text-black justify-center w-full">
+                <span className="flex items-center justify-center w-full">
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Me
                 </span>
@@ -89,7 +85,7 @@ const Hero = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg transition-all hover:scale-110 z-50 cursor-pointer"
+          className="fixed bottom-8 right-8 p-3 rounded-full glow-button shadow-lg transition-all hover:scale-110 z-50 cursor-pointer"
         >
           <ArrowUp className="h-5 w-5" />
         </button>
