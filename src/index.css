@@ -86,9 +86,9 @@
 .hero-gradient.light {
   background: linear-gradient(
     60deg,
-    hsla(221, 45%, 73%, 0.8) 0%,
-    hsla(220, 78%, 29%, 0.8) 50%,
-    hsla(221, 45%, 73%, 0.8) 100%
+    hsla(142, 76%, 36%, 0.8) 0%,
+    hsla(142, 76%, 26%, 0.8) 50%,
+    hsla(142, 76%, 36%, 0.8) 100%
   );
 }
 
@@ -164,9 +164,9 @@
 
 .scroll-to-top {
   @apply fixed bottom-8 right-8 p-3 rounded-full shadow-lg transition-all hover:scale-110 z-50 cursor-pointer;
-  background-color: hsl(var(--primary));
+  background-color: hsl(142 76% 36%);
   color: hsl(var(--primary-foreground));
-  box-shadow: 0 0 15px hsl(var(--primary) / 0.6);
+  box-shadow: 0 0 15px hsla(142, 76%, 36%, 0.6);
 }
 
 .footer {
