@@ -10,7 +10,7 @@
     --card-foreground: 220 14% 4%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 14% 4%;
-    --primary: 221 83% 53%;
+    --primary: 142 76% 36%; /* Changed to emerald-600 */
     --primary-foreground: 210 40% 98%;
     --secondary: 220 14% 24%;
     --secondary-foreground: 220 9% 96%;
@@ -22,7 +22,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --ring: 142 76% 36%; /* Changed to match primary */
     --radius: 0.5rem;
   }
 
@@ -33,7 +33,7 @@
     --card-foreground: 213 31% 91%;
     --popover: 224 71% 4%;
     --popover-foreground: 213 31% 91%;
-    --primary: 210 40% 98%;
+    --primary: 142 76% 36%; /* Keep the same emerald in dark mode */
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 222.2 47.4% 11.2%;
     --secondary-foreground: 210 40% 98%;
@@ -45,7 +45,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 216 34% 17%;
     --input: 216 34% 17%;
-    --ring: 216 34% 17%;
+    --ring: 142 76% 36%; /* Changed to match primary */
   }
 }
 
@@ -54,14 +54,17 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
+    height: 100%;
+    overflow: hidden;
   }
 }
 
@@ -107,6 +110,8 @@
 .section-gradient {
   position: relative;
   scroll-snap-align: start;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .section-gradient::before {
@@ -157,14 +162,11 @@
   transform: translateY(-5px);
 }
 
-.glow-button {
-  @apply bg-primary text-primary-foreground hover:bg-primary/90;
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
-}
-
 .scroll-to-top {
-  @apply fixed bottom-8 right-8 p-3 rounded-full shadow-lg transition-all hover:scale-110 z-50 cursor-pointer bg-primary text-primary-foreground;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+  @apply fixed bottom-8 right-8 p-3 rounded-full shadow-lg transition-all hover:scale-110 z-50 cursor-pointer;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.6);
 }
 
 .footer {
