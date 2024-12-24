@@ -85,7 +85,7 @@ const Hero = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full glow-button shadow-lg transition-all hover:scale-110 z-50 cursor-pointer"
+          className="scroll-to-top"
         >
           <ArrowUp className="h-5 w-5" />
         </button>
