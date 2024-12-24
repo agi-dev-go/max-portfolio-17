@@ -56,10 +56,12 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
   }
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scroll-snap-type: y mandatory;
   }
 }
 
@@ -81,9 +83,9 @@
 .hero-gradient.light {
   background: linear-gradient(
     60deg,
-    hsla(221, 45%, 73%, 1) 0%,
-    hsla(220, 78%, 29%, 1) 50%,
-    hsla(221, 45%, 73%, 1) 100%
+    hsla(221, 45%, 73%, 0.8) 0%,
+    hsla(220, 78%, 29%, 0.8) 50%,
+    hsla(221, 45%, 73%, 0.8) 100%
   );
 }
 
@@ -97,19 +99,14 @@
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .section-gradient {
   position: relative;
+  scroll-snap-align: start;
 }
 
 .section-gradient::before {
@@ -120,7 +117,7 @@
   right: 0;
   bottom: 0;
   border-radius: 2rem;
-  opacity: 0.15;
+  opacity: 0.25;
   z-index: -1;
   background-size: 200% 200%;
   animation: gradientBG 15s ease infinite;
@@ -129,31 +126,25 @@
 .light .section-gradient::before {
   background: linear-gradient(
     225deg,
-    rgba(223,234,247,1) 0%,
-    rgba(244,248,252,1) 50%,
-    rgba(223,234,247,1) 100%
+    #8B5CF6 0%,
+    #D946EF 50%,
+    #F97316 100%
   );
 }
 
 .dark .section-gradient::before {
   background: linear-gradient(
     225deg,
-    rgba(48,67,82,0.6) 0%,
-    rgba(215,210,204,0.3) 50%,
-    rgba(48,67,82,0.6) 100%
+    rgba(48,67,82,0.8) 0%,
+    rgba(139,92,246,0.5) 50%,
+    rgba(48,67,82,0.8) 100%
   );
 }
 
 @keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .card-hover {
@@ -174,4 +165,8 @@
 .scroll-to-top {
   @apply fixed bottom-8 right-8 p-3 rounded-full shadow-lg transition-all hover:scale-110 z-50 cursor-pointer bg-primary text-primary-foreground;
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+.footer {
+  @apply w-full py-4 text-center text-sm text-muted-foreground bg-background/80 backdrop-blur-sm border-t border-border/50;
 }
